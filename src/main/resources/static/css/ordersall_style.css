@@ -1,0 +1,85 @@
+body{
+    background-color: white;
+    color: black;
+    font-family: "Calibri Light";
+    font-size: 23px;
+    margin: 5px;
+    font-weight: inherit;
+}
+header{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin: 5px;
+    font-size: 30px;
+    text-decoration: none;
+    background-color: rgba(3, 59, 59, 0.8);
+    box-shadow: 0px 7px 14px 0px black;
+    color: whitesmoke;
+    font-family: "Calibri Light";
+    text-shadow: 1px 1px 2px black;
+    padding: 10px 10px 10px 20px;
+    border-radius: 5px;
+}
+header a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+h3 {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+a:hover{
+    text-decoration: none;
+    color: whitesmoke;
+}
+.btn-secondary{
+    background-color: rgba(3, 59, 59, 0.3);
+    font-size: 25px;
+    color: whitesmoke;
+    font-family: "Calibri Light";
+    text-shadow: 1px 1px 2px black;
+    border: none;
+}
+.btn-secondary:hover{
+    background-color: rgba(16, 109, 109, 0.5);
+}
+.dropdown-menu{
+    width: 270px;
+    font-size: 23px;
+
+}
+.dropdown-item{
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.row{
+    margin: 30px 30px 0px 30px;
+}
+.form-control, .form-select{
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+.add{
+    background-color: rgba(3, 59, 59, 0.3);
+}
+.ordersall{
+    margin: 10px 35px 0px 35px;
+}
+.ordersall a{
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+    border-radius: 0.375rem;
+    border: 1px solid #ced4da;;
+    background-color: rgba(3, 59, 59, 0.3);
+    opacity: 1;
+    display: inline-block;
+    width: 453px;
+}
+.ordersall a:visited{
+    border: 1px solid #ced4da;
+}

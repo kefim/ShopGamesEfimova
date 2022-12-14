@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список товаров: </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link th:href="@{/css/product_style.css}" type="text/css" rel="stylesheet">
+</head>
+<header>
+    <div>
+        <a href="/product">ShopGames</a>
+    </div>
+    <div>
+        <a href="/auth/login">Вход</a>
+    </div>
+    <div>
+        <a href="/auth/registration">Регистрация</a>
+    </div>
+</header>
+<body>
+<form id="form" th:method="POST" th:action="@{/product/search}">
+<fieldset class="row g-3">
+    <legend>Выберите параметры для сортировки, поиска, фильтрации</legend>
+    <div class="col-12">
+        <label for="search" class="form-label" >Поиск по наименованию</label>
+        <input class="form-control" type="search" name="search"  th:value="*{value_search}" id="search">
+    </div>
+    <p>Цена, ₽</p>
+    <div class="col-md-6">
+        <label for="ot" class="form-label">От</label>
+        <input class="form-control" type="text" name="ot"  th:value="*{value_price_ot}" id="ot">
+    </div>
+    <div class="col-md-6">
+        <label for="do" class="form-label">До</label>
+        <input class="form-control" type="text" name="do"  th:value="*{value_price_do}" id="do">
+    </div>
+    <br>
+    <br>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" id="ascending_price" name="price" value="sorted_by_ascending_price">
+    <label class="form-check-label" for="ascending_price">Отсортировать по возрастанию цены</label>
+    </div>
+    <br>
+    <br>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" id="descending_price" name="price" value="sorted_by_descending_price">
+    <label class="form-check-label" for="descending_price">Отсортировать по убыванию цены</label>
+    </div>
+    <h3>Категории игр: </h3>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" id="child" name="category" value="child">
+    <label class="form-check-label" for="child">Детские</label>
+    </div>
+    <br>
+    <br>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" id="party" name="category" value="party">
+    <label class="form-check-label" for="party">Вечериночные</label>
+    </div>
+    <br>
+    <br>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" id="detect" name="category" value="detect">
+    <label class="form-check-label" for="detect">Детективные</label>
+    <br>
+    <br>
+    </div>
+    <input class="form-control add" type="submit" value="Найти">
+</fieldset>
+</form>
+<h3>Результат: </h3>
+<div class="row justify-content-right">
+    <div class="cart-item col-md-6 col-sm-8" th:each="product : ${search_product}">
+        <img class="cart-img" th:src="'/img/' + ${product.imageList[0].getFileName()}" width="300px">
+        <br>
+        <br>
+        <a class="cart-info" th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
+        <p class="cart-info" th:text="'Цена: ' + ${product.getPrice()}"></p>
+    </div>
+</div>
+<hr>
+<h3>Доступные товары: </h3>
+<div class="row justify-content-center">
+    <div class="cart-item col-md-3 col-sm-8" th:each="product : ${products}">
+        <img class="cart-img" th:src="'/img/' + ${product.imageList[0].getFileName()}" width="300px">
+        <br>
+        <br>
+        <a class="cart-info" th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}" id="title"></a>
+        <p class="cart-info" th:text="'Цена: ' + ${product.getPrice()}"></p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

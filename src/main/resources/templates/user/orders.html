@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link th:href="@{/css/order_style.css}" type="text/css" rel="stylesheet">
+</head>
+<header>
+    <div>
+        <a href="/index">На главную</a>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn btn-secondary btn-lg" type="button">
+            Личный кабинет
+        </button>
+        <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li>
+                <form method="get" th:action="@{/orders}">
+                    <input type="submit" class="dropdown-item" value="Заказы">
+                </form>
+            </li>
+            <li>
+                <form method="get" th:action="@{/cart}">
+                    <input type="submit" class="dropdown-item" value="Корзина">
+                </form>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li>
+                <form method="post" th:action="@{/logout}">
+                    <input type="submit" class="dropdown-item" value="Выйти">
+                </form>
+            </li>
+
+        </ul>
+    </div>
+</header>
+<body>
+<div class="CartTitle">
+    <h3>Ваши заказы</h3>
+</div>
+
+<div class="row g-3" th:each="element : ${orders}" >
+    <div class="col-md-6" >
+        <label class="form-label" for="orders">Заказ №</label>
+        <input class="form-control" type="text" th:value="${element.getNumber()}" id="orders" disabled="" readonly="">
+
+            <label class="form-label" for="statusOrder">Статус</label>
+            <input class="form-control" type="text" th:value="${element.getStatus()}" id="statusOrder" disabled="" readonly="">
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label" for="title">Наименование</label>
+        <input class="form-control" type="text" th:value="${element.getProduct().getTitle()}" id="title" disabled="" readonly="">
+
+        <label class="form-label" for="count">Количество</label>
+        <input class="form-control" type="text" th:value="${element.getCount()}" id="count" disabled="" readonly="">
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label" for="data">Дата заказа</label>
+        <input class="form-control" type="text" th:value="${#temporals.format(element.getDateTime(), 'dd-MMM-yyyy')}" id="data" disabled="" readonly="">
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label" for="price">Цена</label>
+        <input class="form-control" type="text" th:value="${element.getPrice()}" id="price" disabled="" readonly="">
+    </div>
+
+    <div class="img col-md-6 align-self-center justify-content-center">
+        <img th:src="'/img/' + ${element.getProduct().imageList[0].getFileName()}" width="150px">
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

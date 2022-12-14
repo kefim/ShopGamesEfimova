@@ -1,0 +1,128 @@
+body{
+    background-color: white;
+    color: black;
+    font-family: "Calibri Light";
+    font-size: 23px;
+    margin: 5px;
+    font-weight: bold;
+}
+header{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin: 5px;
+    font-size: 30px;
+    text-decoration: none;
+    background-color: rgba(3, 59, 59, 0.8);
+    box-shadow: 0px 7px 14px 0px black;
+    color: whitesmoke;
+    font-family: "Calibri Light";
+    text-shadow: 1px 1px 2px black;
+    padding: 10px 10px 10px 20px;
+    border-radius: 5px;
+}
+header a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+a:hover{
+    text-decoration: none;
+    color: whitesmoke;
+}
+h3 {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+.btn-secondary{
+    background-color: rgba(3, 59, 59, 0.3);
+    font-size: 25px;
+    color: whitesmoke;
+    font-family: "Calibri Light" ; !important;
+    text-shadow: 1px 1px 2px black;
+    border: none;
+}
+.btn-secondary:hover{
+    background-color: rgba(16, 109, 109, 0.5);
+}
+.dropdown-menu{
+    width: 270px;
+    font-size: 20px;
+}
+.row{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 30px 30px 5px 30px;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 1px solid gray;
+    border-radius: 0.375rem;
+}
+.row a{
+    color: black;
+    text-decoration: none;
+    font-weight: 900;
+}
+.row a:hover{
+    text-decoration: none;
+}
+.btnDelete{
+    display: flex;
+    align-self: center;
+    justify-content: end;
+ }
+
+.btnDelete p{
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 40px;
+    width: 40px;
+}
+
+.cartName{
+    align-self: center;
+}
+.cartPrice{
+    margin-right: 10px;
+    text-align: center;
+    font-weight: bold;
+    align-self: center;
+}
+.cartPrice p{
+    margin: 0px;
+    padding: 0px;
+}
+.cartImg{
+    align-self: center;
+}
+.CartItog{
+    display: grid;
+    justify-content: end;
+    margin: 30px 35px 0px 30px;
+}
+.CartBtn a{
+    margin-right: 5px;
+    text-align: center;
+    background-color: rgba(3, 59, 59, 0.8);
+    border-radius: 20px;
+    box-shadow: 0px 1px 1px 0px black;
+    width: 200px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+.CartBtn{
+    display: flex;
+    justify-content: end;
+    margin: 0px 30px 0px 30px;
+}
+.CartTitle{
+    margin-top: 25px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+h3{
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+

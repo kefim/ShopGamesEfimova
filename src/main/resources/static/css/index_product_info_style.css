@@ -1,0 +1,109 @@
+body{
+    background-color: white;
+    color: black;
+    font-family: "Calibri Light";
+    font-size: 23px;
+    margin: 5px;
+    font-weight: bold;
+}
+header{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin: 5px;
+    font-size: 30px;
+    text-decoration: none;
+    background-color: rgba(3, 59, 59, 0.8);
+    box-shadow: 0px 7px 14px 0px black;
+    color: whitesmoke;
+    font-family: "Calibri Light";
+    text-shadow: 1px 1px 2px black;
+    padding: 10px 10px 10px 20px;
+    border-radius: 5px;
+}
+header a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+a:hover{
+    text-decoration: none;
+    color: whitesmoke;
+}
+.btn-secondary{
+    background-color: rgba(3, 59, 59, 0.3);
+    font-size: 25px;
+    color: whitesmoke;
+    font-family: "Calibri Light";
+    text-shadow: 1px 1px 2px black;
+    border: none;
+}
+.btn-secondary:hover{
+    background-color: rgba(16, 109, 109, 0.5);
+}
+.dropdown-menu{
+    width: 270px;
+    font-size: 20px;
+}
+.row{
+    margin: 25px 40px 0px 40px;
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 30px;
+}
+.row1{
+    margin: 25px 40px 0px 40px;
+    text-align: justify-all;
+}
+.slides{
+    width: 500px;
+    height: 500px;
+    padding-top: 70px;
+    padding-left: 70px;
+}
+
+.slides2{
+    text-align: left;
+    padding-top: 70px;
+    padding-left: 70px;
+}
+.slides3{
+    text-align: justify-all;
+}
+button{
+    border: none;
+    background: none;
+
+}
+.slider1{ !important;
+    font-size: 40px;
+    text-align: center;
+    justify-content: center;
+    color: gray;
+    display: flex;
+    align-self: center;
+}
+.slides1 p{
+    border: none;
+    background: none;
+    font-size: 40px;
+    text-align: center;
+    border-radius: 10px;
+    justify-content: center;
+    color: gray;
+    height: 70px;
+    width: 40px;
+}
+.slides1 p:hover{
+    border: none;
+    background-color: rgba(187, 211, 211, 0.3);
+}
+
+img{
+    display: none;
+}
+
+.block{
+    display: block;
+    object-fit: scale-down;
+    width: 70%;
+    height: 70%;
+}

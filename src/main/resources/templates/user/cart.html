@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link th:href="@{/css/cart_style.css}" type="text/css" rel="stylesheet">
+</head>
+<header>
+    <div>
+        <a href="/index">На главную</a>
+    </div>
+
+    <div class="btn-group">
+        <button class="btn btn-secondary btn-lg" type="button">
+            Личный кабинет
+        </button>
+        <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li>
+                <form method="get" th:action="@{/orders}">
+                    <input type="submit" class="dropdown-item" value="Заказы">
+                </form>
+            </li>
+            <li>
+                <form method="get" th:action="@{/cart}">
+                    <input type="submit" class="dropdown-item" value="Корзина">
+                </form>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li>
+                <form method="post" th:action="@{/logout}">
+                    <input type="submit" class="dropdown-item" value="Выйти">
+                </form>
+            </li>
+
+        </ul>
+    </div>
+</header>
+<body>
+<div class="CartTitle">
+    <h3>Корзина товаров</h3>
+</div>
+    <div class="row" th:each="product : ${cart_product}">
+        <div class="cartImg">
+            <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="150px" height="150px">
+        </div>
+        <div class="cartName">
+            <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
+        </div>
+        <div class="cartPrice">
+            <p th:text="${product.getPrice()+ ' ₽'}"></p>
+        </div>
+        <div class="btnDelete">
+            <a th:href="@{/cart/delete/{id}(id=${product.getId()})}"><p>X</p></a>
+        </div>
+    </div>
+<div class="CartItog">
+    <h3 th:text="'Итого: ' + ${price}"></h3>
+</div>
+<div class="CartBtn">
+    <a href="/order/create">Оформить заказ</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>
